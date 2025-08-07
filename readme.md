@@ -33,8 +33,11 @@ A Discord bot MCP server that downloads all images from a specified Discord chan
 
 You can run the MCP server with:
 ```bash
-npx tsx src/main.ts
+npx tsx src/main.ts 
 ```
+
+**Note**: You must provide your Discord bot token via environment variables (e.g., in a `.env` file or your shell environment) as `DISCORD_TOKEN`.  
+Without this token, the bot will not be able to connect to Discord and the server will fail to start.
 
 ## MCP Client Configuration
 
