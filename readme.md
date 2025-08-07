@@ -77,20 +77,7 @@ The bot requires the following permissions in the target Discord channel:
 
 If permissions are insufficient, the tool will return an error indicating the issue.
 
-## Project Structure
-```
-MCP-Discord-Image-Downloader/
-│
-├── src/
-│   ├── main.ts          
-│   ├── download.ts     
-│   └── utils/
-│       └── fileUtils.ts
-│
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+
 
 ## Troubleshooting
 
