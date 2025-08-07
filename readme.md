@@ -49,6 +49,7 @@ You can configure your MCP client with the following JSON configuration (adjust 
     "DISCORD_TOKEN": "your_bot_token_here"
   }
 }
+```
 
 ### MCP Tool: `download_channel_images`
 
