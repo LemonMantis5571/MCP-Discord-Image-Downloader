@@ -8,20 +8,11 @@ import {
   CallToolRequest,
   ListToolsRequest,
 } from '@modelcontextprotocol/sdk/types.js';
-import dotenv from 'dotenv';
-import path from 'node:path';
 import { Client } from 'discord.js';
 import { createDiscordClient } from './discordClient.js';
 import { downloadChannelImages } from './tools/download/downloadChannelImages.js';
 import { DownloadArgs } from './types.js';
 
-import { fileURLToPath } from 'node:url';
-
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 export class DiscordMCP {
   private server: Server;

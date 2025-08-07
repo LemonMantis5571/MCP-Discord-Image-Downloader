@@ -4,4 +4,4 @@ dist/
 *.log
 *.env
 .DS_Store
-/src/downloads/
+/src/downloads/*
