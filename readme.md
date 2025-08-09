@@ -77,7 +77,7 @@ Example `mcpServers` configuration:
   "args": [
     "-y",
     "@modelcontextprotocol/server-filesystem",
-    "your//path/here
+    "your//path/here"
   ]
 }
 ```
