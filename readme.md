@@ -50,10 +50,37 @@ You can configure your MCP client with the following JSON configuration (adjust 
   "cwd": "path/to/your/project/src",
   "env": {
     "DISCORD_TOKEN": "your_bot_token_here"
+  },
+  "permissions": {
+    "filesystem": {
+      "read": [
+        "path/to/downloads",
+        "path/to/another/folder"
+      ],
+      "write": [
+        "path/to/downloads",
+        "path/to/another/folder"
+      ]
+    }
   }
 }
 ```
 
+## Recommended Setup for File Access
+
+For the best usability, run this MCP alongside the official **filesystem MCP server** and grant access to the same directories where images are saved.  
+Example `mcpServers` configuration:
+
+```json
+"filesystem": {
+  "command": "npx",
+  "args": [
+    "-y",
+    "@modelcontextprotocol/server-filesystem",
+    "your//path/here
+  ]
+}
+```
 ### MCP Tool: `download_channel_images`
 
 #### Input Arguments

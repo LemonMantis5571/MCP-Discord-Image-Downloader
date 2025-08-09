@@ -5,6 +5,7 @@ export interface DownloadArgs {
   output_dir?: string;
   limit?: number;
   include_metadata?: boolean;
+  image_limit?: number; 
 }
 
 export interface ImageData {
@@ -33,6 +34,8 @@ export interface DownloadMetadata {
     totalFound: number;
     downloaded: number;
     outputDir: string;
+    skipped: number;
+    image_limit_applied: number | null;
   };
   images: DownloadResult[];
 }

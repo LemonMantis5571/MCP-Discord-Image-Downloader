@@ -16,6 +16,7 @@ export async function downloadChannelImages(
     channel_id,
     output_dir = './downloads',
     limit = 100,
+    image_limit, 
     include_metadata = true
   } = args;
 
@@ -43,10 +44,10 @@ export async function downloadChannelImages(
     }
 
     const textChannel = channel as TextChannel;
-
     const channelDir = path.join(output_dir, `${textChannel.name}_${channel_id}`);
     await ensureDir(channelDir);
 
+    // Fetch messages
     const messages: Message[] = [];
     let lastId: string | undefined;
 
@@ -76,10 +77,17 @@ export async function downloadChannelImages(
       }
     }
 
+ 
+    const imagesToProcess = image_limit 
+      ? imageMessages.slice(0, image_limit) 
+      : imageMessages;
+
+
     let downloaded = 0;
     const results: DownloadResult[] = [];
+    const skipped = imageMessages.length - imagesToProcess.length;
 
-    for (const { attachment, message } of imageMessages) {
+    for (const { attachment, message } of imagesToProcess) {
       try {
         const filename = include_metadata
           ? `${new Date(message.createdTimestamp).toISOString().split('T')[0]}_${message.author.username}_${message.id}_${attachment.name}`
@@ -113,7 +121,9 @@ export async function downloadChannelImages(
         date: new Date().toISOString(),
         totalFound: imageMessages.length,
         downloaded,
+        skipped: skipped,
         outputDir: channelDir,
+        image_limit_applied: image_limit || null,
       },
       images: results,
     };
@@ -130,9 +140,15 @@ export async function downloadChannelImages(
             {
               success: true,
               channel: textChannel.name,
-              totalFound: imageMessages.length,
+              messages_scanned: messages.length,
+              total_images_found: imageMessages.length,
               downloaded,
+              skipped: skipped > 0 ? skipped : undefined,
               outputDir: channelDir,
+              image_limit_applied: image_limit || "No limit",
+              summary: skipped > 0 
+                ? `Downloaded ${downloaded} images, skipped ${skipped} due to image_limit`
+                : `Downloaded all ${downloaded} images found`,
               metadata,
             },
             null,
