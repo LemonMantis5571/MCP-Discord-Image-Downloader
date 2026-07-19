@@ -19,8 +19,8 @@ A Discord bot MCP server that downloads all images from a specified Discord chan
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/LemonMantis5571/MCP-Discord-Image-Donwloader.git
-   cd MCP-Discord-Image-Donwloader
+   git clone https://github.com/LemonMantis5571/MCP-Discord-Image-Downloader.git
+   cd MCP-Discord-Image-Downloader
    ```
 
 2. Install dependencies:
@@ -118,4 +118,4 @@ If permissions are insufficient, the tool will return an error indicating the is
 ## License
 MIT License
 
-Repository: https://github.com/LemonMantis5571/MCP-Discord-Image-Donwloader
+Repository: https://github.com/LemonMantis5571/MCP-Discord-Image-Downloader
